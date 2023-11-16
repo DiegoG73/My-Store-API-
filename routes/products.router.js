@@ -30,4 +30,23 @@ router.get('/:id', (req, res) => {
   });
 });
 
+// Creando el código para recibir los POSTs
+router.post('/', (req, res) => {
+  const body = req.body;
+  res.json({
+    message: 'created',
+    data: body
+  })
+});
+
+router.patch('/:id', (req, res) => {
+  const { id } = req.params;
+  const body = req.body;
+  res.json({
+    message: 'update',
+    data: body,
+    id,
+  });
+});
+
 module.exports = router;
